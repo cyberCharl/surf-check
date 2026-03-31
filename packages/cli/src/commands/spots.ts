@@ -48,6 +48,7 @@ export function spotsCmd(apiUrl: string) {
           idealMinHeight: spot.ideal?.minHeight_m,
           idealMaxHeight: spot.ideal?.maxHeight_m,
           offshoreWindDirs: spot.ideal?.offshoreWindDir,
+          sourceUrls: spot.sources,
           notes: spot.ideal?.notes,
         }
 

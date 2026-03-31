@@ -9,6 +9,7 @@ export const spotSchema = z.object({
   idealMinHeight: z.number().optional(),
   idealMaxHeight: z.number().optional(),
   offshoreWindDirs: z.array(z.string()).optional(),
+  sourceUrls: z.record(z.string()).optional(),
   notes: z.string().optional(),
 })
 

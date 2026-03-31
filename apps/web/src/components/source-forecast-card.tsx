@@ -21,7 +21,18 @@ export function SourceForecastCard({ forecast }: SourceForecastCardProps) {
             Source
           </div>
           <h2 className="mt-2 text-lg font-semibold text-white">
-            {getSourceLabel(forecast.source)}
+            {forecast.sourceUrl ? (
+              <a
+                href={forecast.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-cyan-400/40 underline-offset-2 transition-colors hover:text-cyan-200 hover:decoration-cyan-300"
+              >
+                {getSourceLabel(forecast.source)}
+              </a>
+            ) : (
+              getSourceLabel(forecast.source)
+            )}
           </h2>
         </div>
 

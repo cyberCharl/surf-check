@@ -18,6 +18,9 @@ function serializeSpot(row: typeof spotsTable.$inferSelect): SpotRecord {
     offshoreWindDirs: row.offshoreWindDirs
       ? (JSON.parse(row.offshoreWindDirs) as string[])
       : [],
+    sourceUrls: row.sourceUrls
+      ? (JSON.parse(row.sourceUrls) as Record<string, string>)
+      : {},
     notes: row.notes,
   }
 }
@@ -52,6 +55,9 @@ spots.put("/", zValidator("json", spotSchema), async (c) => {
         offshoreWindDirs: input.offshoreWindDirs
           ? JSON.stringify(input.offshoreWindDirs)
           : null,
+        sourceUrls: input.sourceUrls
+          ? JSON.stringify(input.sourceUrls)
+          : null,
         notes: input.notes,
       })
       .where(eq(spotsTable.slug, input.slug))
@@ -66,6 +72,9 @@ spots.put("/", zValidator("json", spotSchema), async (c) => {
     idealMaxHeight: input.idealMaxHeight,
     offshoreWindDirs: input.offshoreWindDirs
       ? JSON.stringify(input.offshoreWindDirs)
+      : null,
+    sourceUrls: input.sourceUrls
+      ? JSON.stringify(input.sourceUrls)
       : null,
     notes: input.notes,
   })

@@ -11,6 +11,7 @@ export const spots = sqliteTable("spots", {
   idealMinHeight: real("ideal_min_height"),
   idealMaxHeight: real("ideal_max_height"),
   offshoreWindDirs: text("offshore_wind_dirs"), // JSON array of directions
+  sourceUrls: text("source_urls"), // JSON Record<source, url> from config
   notes: text("notes"),
   createdAt: integer("created_at", { mode: "timestamp" })
     .notNull()

@@ -9,11 +9,13 @@ export type SpotRecord = {
   idealMinHeight: number | null
   idealMaxHeight: number | null
   offshoreWindDirs: string[]
+  sourceUrls: Record<string, string>
   notes: string | null
 }
 
 export type SpotSourceForecast = {
   source: string
+  sourceUrl: string | null
   waveHeightMin: number | null
   waveHeightMax: number | null
   wavePeriod: number | null

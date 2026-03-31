@@ -129,6 +129,7 @@ forecasts.get("/summary", async (c) => {
       idealMinHeight: spotsTable.idealMinHeight,
       idealMaxHeight: spotsTable.idealMaxHeight,
       offshoreWindDirs: spotsTable.offshoreWindDirs,
+      sourceUrls: spotsTable.sourceUrls,
       notes: spotsTable.notes,
       source: forecastsTable.source,
       waveHeightMin: forecastsTable.waveHeightMin,
@@ -165,6 +166,9 @@ forecasts.get("/summary", async (c) => {
         offshoreWindDirs: row.offshoreWindDirs
           ? (JSON.parse(row.offshoreWindDirs) as string[])
           : [],
+        sourceUrls: row.sourceUrls
+          ? (JSON.parse(row.sourceUrls) as Record<string, string>)
+          : {},
         notes: row.notes,
       }
 
@@ -175,8 +179,10 @@ forecasts.get("/summary", async (c) => {
       }
     }
 
+    const spotSourceUrls = bySpot[row.spotSlug].spot.sourceUrls
     const sourceForecast: SpotSourceForecast = {
       source: row.source,
+      sourceUrl: spotSourceUrls[row.source] ?? null,
       waveHeightMin: row.waveHeightMin,
       waveHeightMax: row.waveHeightMax,
       wavePeriod: row.wavePeriod,
