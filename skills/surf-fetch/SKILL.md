@@ -1,15 +1,15 @@
 # Surf Fetch — Data Collection Skill 🏄
 
-Scrapes surf forecast data from multiple sources for configured spots. Used by the cron job to populate the Surf Check database.
+Scrapes surf forecast data from multiple sources for configured spots. Used by the cron job to populate the Dawn Patrol database.
 
 ## Config
 
-Read spot configuration from `~/.config/surf-check/config.json`. Each spot has a `sources` map of source name → forecast URL.
+Read spot configuration from `~/.config/dawn-patrol/config.json`. Each spot has a `sources` map of source name → forecast URL.
 
 ## Workflow
 
 ### 1. Load Config
-Read `~/.config/surf-check/config.json` to get the list of spots and their source URLs.
+Read `~/.config/dawn-patrol/config.json` to get the list of spots and their source URLs.
 
 ### 2. Scrape Each Source
 
@@ -74,13 +74,13 @@ Produce a JSON payload matching the ingest schema:
 Pipe the JSON to the CLI:
 
 ```bash
-echo '<json>' | bun /path/to/surf-check/packages/cli/src/index.ts ingest
+echo '<json>' | bun /path/to/dawn-patrol/packages/cli/src/index.ts ingest
 ```
 
 Or save to a temp file and use:
 
 ```bash
-bun /path/to/surf-check/packages/cli/src/index.ts ingest -f /tmp/forecast.json
+bun /path/to/dawn-patrol/packages/cli/src/index.ts ingest -f /tmp/forecast.json
 ```
 
 ### 5. Assess & Notify
@@ -88,7 +88,7 @@ bun /path/to/surf-check/packages/cli/src/index.ts ingest -f /tmp/forecast.json
 After ingesting, query the summary:
 
 ```bash
-bun /path/to/surf-check/packages/cli/src/index.ts query summary
+bun /path/to/dawn-patrol/packages/cli/src/index.ts query summary
 ```
 
 If any spot has a rating ≥ 3 (from surf-forecast.com) or conditions "FAIR" or better (from Surfline), send a nudge notification to Telegram:

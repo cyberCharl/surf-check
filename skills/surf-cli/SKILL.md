@@ -1,13 +1,13 @@
 # Surf CLI — Database Interaction Skill 🖥️
 
-How to use the Surf Check CLI to manage spots, ingest data, and query forecasts.
+How to use the Dawn Patrol CLI to manage spots, ingest data, and query forecasts.
 
 ## Prerequisites
 
-- API must be running: `cd /home/clawdysseus/odyssey/repos/surf-check && bun run --filter @workspace/api dev`
-- CLI lives at: `/home/clawdysseus/odyssey/repos/surf-check/packages/cli/src/index.ts`
-- Run with: `bun /home/clawdysseus/odyssey/repos/surf-check/packages/cli/src/index.ts <command>`
-- API URL defaults to `http://localhost:3220` (override with `SURF_CHECK_API` env var)
+- API must be running: `cd /home/clawdysseus/odyssey/repos/dawn-patrol && bun run --filter @workspace/api dev`
+- CLI lives at: `/home/clawdysseus/odyssey/repos/dawn-patrol/packages/cli/src/index.ts`
+- Run with: `bun /home/clawdysseus/odyssey/repos/dawn-patrol/packages/cli/src/index.ts <command>`
+- API URL defaults to `http://localhost:3220` (override with `DAWN_PATROL_API` env var)
 
 ## Commands
 
@@ -15,24 +15,24 @@ How to use the Surf Check CLI to manage spots, ingest data, and query forecasts.
 
 ```bash
 # List all spots in the database
-surf-check spots list
+dawn-patrol spots list
 
 # Sync spots from config file to database (run once on setup, or after config changes)
-surf-check spots sync
-surf-check spots sync --config /path/to/config.json
+dawn-patrol spots sync
+dawn-patrol spots sync --config /path/to/config.json
 ```
 
 ### Data Ingestion
 
 ```bash
 # Ingest forecast data from stdin
-echo '{"forecastDate":"2026-04-01","forecasts":[...]}' | surf-check ingest
+echo '{"forecastDate":"2026-04-01","forecasts":[...]}' | dawn-patrol ingest
 
 # Ingest from file
-surf-check ingest --file /tmp/forecast.json
+dawn-patrol ingest --file /tmp/forecast.json
 
 # Override forecast date
-surf-check ingest --date 2026-04-02 --file /tmp/forecast.json
+dawn-patrol ingest --date 2026-04-02 --file /tmp/forecast.json
 ```
 
 The ingest payload schema:
@@ -71,23 +71,23 @@ All fields except `spotSlug` and `source` are optional — ingest whatever you s
 
 ```bash
 # Tomorrow's summary (grouped by spot, all sources)
-surf-check query summary
+dawn-patrol query summary
 
 # Summary for a specific date
-surf-check query summary --date 2026-04-01
+dawn-patrol query summary --date 2026-04-01
 
 # Raw forecast records with filters
-surf-check query forecasts --date 2026-04-01
-surf-check query forecasts --spot muizenberg --source surf-forecast
-surf-check query forecasts --limit 10
+dawn-patrol query forecasts --date 2026-04-01
+dawn-patrol query forecasts --spot muizenberg --source surf-forecast
+dawn-patrol query forecasts --limit 10
 ```
 
 ## Typical Agent Workflow
 
-1. **First time setup:** `surf-check spots sync` (populates spots table from config)
+1. **First time setup:** `dawn-patrol spots sync` (populates spots table from config)
 2. **Scrape** forecast data using the surf-fetch skill
-3. **Ingest** the scraped data: `surf-check ingest -f /tmp/forecast.json`
-4. **Query** the summary: `surf-check query summary`
+3. **Ingest** the scraped data: `dawn-patrol ingest -f /tmp/forecast.json`
+4. **Query** the summary: `dawn-patrol query summary`
 5. **Notify** if conditions are good (based on summary ratings)
 
 ## API Endpoints (for direct use if needed)

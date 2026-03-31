@@ -4,11 +4,11 @@
   "type": "module",
   "private": true,
   "bin": {
-    "surf-check": "./src/index.ts"
+    "dawn-patrol": "src/index.ts"
   },
   "scripts": {
     "dev": "bun src/index.ts",
-    "build": "bun build src/index.ts --outfile dist/surf-check --target bun",
+    "build": "bun build src/index.ts --outfile dist/dawn-patrol --target bun",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

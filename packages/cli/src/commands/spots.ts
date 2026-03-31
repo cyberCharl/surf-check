@@ -28,7 +28,7 @@ export function spotsCmd(apiUrl: string) {
   cmd
     .command("sync")
     .description("Sync spots from config file to database")
-    .option("-c, --config <path>", "Config file path", `${process.env.HOME}/.config/surf-check/config.json`)
+    .option("-c, --config <path>", "Config file path", `${process.env.HOME}/.config/dawn-patrol/config.json`)
     .action(async (opts) => {
       const config = JSON.parse(await Bun.file(opts.config).text())
       if (!Array.isArray(config.spots)) {

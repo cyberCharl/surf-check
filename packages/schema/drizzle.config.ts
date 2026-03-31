@@ -7,6 +7,6 @@ export default defineConfig({
   out: "./drizzle",
   dialect: "sqlite",
   dbCredentials: {
-    url: join(homedir(), ".local/share/surf-check/surf-check.db"),
+    url: join(homedir(), ".local/share/dawn-patrol/dawn-patrol.db"),
   },
 })

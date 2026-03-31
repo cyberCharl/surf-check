@@ -4,10 +4,10 @@ import { homedir } from "node:os"
 import { mkdirSync } from "node:fs"
 import * as schema from "./tables"
 
-const dataDir = join(homedir(), ".local/share/surf-check")
+const dataDir = join(homedir(), ".local/share/dawn-patrol")
 mkdirSync(dataDir, { recursive: true })
 
-const dbPath = join(dataDir, "surf-check.db")
+const dbPath = join(dataDir, "dawn-patrol.db")
 
 export const db = drizzle({ connection: dbPath, schema })
 export type Database = typeof db

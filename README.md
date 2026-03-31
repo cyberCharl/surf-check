@@ -1,4 +1,4 @@
-# 🏄 Surf Check
+# 🌅 Dawn Patrol
 
 Multi-spot, multi-source surf forecast aggregator with evening notifications. Replaces Surfline's single-spot free-tier alerts with a richer, self-hosted alternative.
 
@@ -12,7 +12,7 @@ Multi-spot, multi-source surf forecast aggregator with evening notifications. Re
 ## Architecture
 
 ```
-surf-check/
+dawn-patrol/
   apps/
     web/            # Vite + React + shadcn/ui — forecast dashboard
   packages/
@@ -58,7 +58,7 @@ bun run typecheck
 
 ## Configuration
 
-Surf spot configuration lives at `~/.config/surf-check/config.json` (XDG-compliant). See `skills/surf-fetch/SKILL.md` for the config schema.
+Surf spot configuration lives at `~/.config/dawn-patrol/config.json` (XDG-compliant). See `skills/surf-fetch/SKILL.md` for the config schema.
 
 ## License
 

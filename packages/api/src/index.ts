@@ -16,9 +16,9 @@ app.route("/api/runs", runs)
 
 app.get("/api/health", (c) => c.json({ status: "ok" }))
 
-const port = parseInt(process.env.SURF_CHECK_PORT ?? "3220")
+const port = parseInt(process.env.DAWN_PATROL_PORT ?? "3220")
 
-console.log(`🏄 Surf Check API running on http://localhost:${port}`)
+console.log(`🏄 Dawn Patrol API running on http://localhost:${port}`)
 
 export default {
   port,

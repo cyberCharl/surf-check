@@ -52,7 +52,7 @@ export function OverviewPage() {
 
   return (
     <AppShell
-      eyebrow="Surf Check"
+      eyebrow="Dawn Patrol"
       title="Tomorrow at a glance"
       subtitle="A multi-source Cape Town read on where the cleanest window is lining up."
       meta={state.data ? `Forecast date ${state.data.date}` : undefined}

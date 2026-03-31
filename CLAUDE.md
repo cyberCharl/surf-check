@@ -2,7 +2,7 @@
 
 ## Project
 
-Surf Check — multi-spot, multi-source surf forecast aggregator. Bun monorepo with Turborepo.
+Dawn Patrol — multi-spot, multi-source surf forecast aggregator. Bun monorepo with Turborepo.
 
 ## Structure
 
@@ -16,8 +16,8 @@ Surf Check — multi-spot, multi-source surf forecast aggregator. Bun monorepo w
 ## Key Conventions
 
 - **Type-safety chain:** Schema package defines all types. API, CLI, and web import from `@workspace/schema`. Never duplicate types.
-- **Database:** SQLite via Drizzle ORM. DB file at `~/.local/share/surf-check/surf-check.db`
-- **Config:** `~/.config/surf-check/config.json` (XDG-compliant)
+- **Database:** SQLite via Drizzle ORM. DB file at `~/.local/share/dawn-patrol/dawn-patrol.db`
+- **Config:** `~/.config/dawn-patrol/config.json` (XDG-compliant)
 - **Runtime:** Bun (not Node)
 - **UI components:** Use shadcn/ui via `@workspace/ui`. Add new components with `bunx --bun shadcn@latest add <component> -c apps/web`
 
@@ -34,7 +34,7 @@ bun run --filter web dev               # Web only
 
 ## API Port
 
-Default: 3220 (env: `SURF_CHECK_API` / `SURF_CHECK_PORT`)
+Default: 3220 (env: `DAWN_PATROL_API` / `DAWN_PATROL_PORT`)
 
 ## Branch Strategy
 
